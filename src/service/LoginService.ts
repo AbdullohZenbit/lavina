@@ -10,6 +10,8 @@ export const loginService = baseAPI.injectEndpoints({
         body: {
           name,
           email,
+          key: name,
+          secret: email,
         },
       }),
     }),

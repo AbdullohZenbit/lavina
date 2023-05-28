@@ -1,4 +1,4 @@
 export const ROUTE_BASE = "/";
 export const ROUTE_HOME = "/home";
 export const ROUTE_SIGN_UP = "/sign-up";
-export const FORM_BOOK = "/form";
+export const ROUTE_ADD_BOOK = "/add";

@@ -8,9 +8,15 @@ export const ButtonComponent: FC<IButton> = ({
   onClick,
   label,
   variant,
+  fullWidth,
 }) => {
   return (
-    <Button variant={variant} type={type} onClick={onClick}>
+    <Button
+      fullWidth={fullWidth}
+      variant={variant}
+      type={type}
+      onClick={onClick}
+    >
       {label}
     </Button>
   );

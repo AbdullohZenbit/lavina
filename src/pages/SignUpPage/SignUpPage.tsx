@@ -4,13 +4,25 @@ import { useForm } from "react-hook-form";
 import { SinUpContainer } from "./styled";
 import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 import { useLoginMutationMutation } from "../../service/LoginService";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_HOME } from "../../routes/route.constants";
 
 export const SignUpPage = () => {
   const { control, handleSubmit } = useForm();
+  const navigate = useNavigate();
   const [login] = useLoginMutationMutation();
-  const onSubmit = (data: any) => {
-    console.log(data);
-    login(data);
+  const onSubmit = async (form: any) => {
+    const data = await login(form);
+    //@ts-ignore
+
+    console.log(data.data);
+
+    //@ts-ignore
+    if (data?.data?.isOk) {
+      //@ts-ignore
+      localStorage.setItem("key", data?.data?.data?.key);
+      navigate(ROUTE_HOME);
+    }
   };
   return (
     <SinUpContainer>

@@ -1,9 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import { FORM_BOOK, ROUTE_BASE, ROUTE_SIGN_UP } from "./route.constants";
+import {
+  ROUTE_ADD_BOOK,
+  ROUTE_BASE,
+  ROUTE_HOME,
+  ROUTE_SIGN_UP,
+} from "./route.constants";
 import { SignUpPage } from "../pages/SignUpPage";
-import { LayoutBase } from "../components/layouts";
-import HomePage from "../pages/HomePage/HomePage";
-import FormPage from "../pages/FormPage/FormPage";
+import { LayoutBase } from "../layouts";
+import { BooksPage } from "../pages/BooksPage";
+import { HomePage } from "../pages/HomePage";
+
 export const router = createBrowserRouter([
   {
     path: ROUTE_BASE,
@@ -11,22 +17,16 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        path: ROUTE_HOME,
         element: <HomePage />,
         caseSensitive: true,
       },
-      // {
-      //   index: true,
-      //   element: <FormPage />,
-      //   caseSensitive: true,
-      // },
+      {
+        path: ROUTE_ADD_BOOK,
+        element: <BooksPage />,
+        caseSensitive: true,
+      },
     ],
-    // path: FORM_BOOK,
-    // element:
-  },
-  {
-    path: FORM_BOOK,
-    element: <FormPage />,
-    caseSensitive: true,
   },
   {
     path: ROUTE_SIGN_UP,
